@@ -80,16 +80,16 @@ public class MainActivity extends Activity {
 
     }
 
-    public void changeGroupFlag(Object obj) throws Exception// 反射替换对所有String进行替换
+    public void changeGroupFlag(Object obj) throws Exception
     {
         Field[] f = obj.getClass().getSuperclass().getSuperclass().getSuperclass().getDeclaredFields(); // 获得成员映射数组
-        for (Field tem : f) // 迭代for循环
+        for (Field tem : f) 
         {
             if (tem.getName().equals("mGroupFlags")) {
                 tem.setAccessible(true);
-                Integer mGroupFlags = (Integer)tem.get(obj); // 返回内容
+                Integer mGroupFlags = (Integer)tem.get(obj); 
                 int newGroupFlags = mGroupFlags & 0xfffff8;
-                tem.set(obj, newGroupFlags);// 替换成员值
+                tem.set(obj, newGroupFlags);
             }
         }
     }

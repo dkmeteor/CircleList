@@ -24,11 +24,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         lv = (ListView)findViewById(R.id.lv);
         lv.setAdapter(new MyAdapter());
-        try {
-            changeGroupFlag(lv);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        lv.setClipToPadding(false);
+        lv.setClipChildren(false);
+//        try {
+//            changeGroupFlag(lv);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         lv.setOnScrollListener(new OnScrollListener() {
 
